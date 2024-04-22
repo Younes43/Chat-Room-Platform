@@ -84,12 +84,6 @@ Open your web browser and navigate to `http://localhost:3000` (or whichever port
 
 
 
-Certainly! Below is a README section that outlines how to deploy your full-stack chat application using Docker and Kubernetes with Minikube. This guide assumes you have Docker, Minikube, and kubectl installed and properly configured on your system.
-
----
-
-
-
 ## Deployment Using Docker and Kubernetes
 
 This section provides a step-by-step guide on how to deploy the chat application using Docker containers and manage it through Kubernetes with Minikube.
