@@ -2,6 +2,7 @@
 
 This README provides instructions on how to set up and run the chat application locally. It includes setting up MongoDB, installing the correct version of Node.js, and running the server and client applications.
 
+The application utilizes React for the front end, Express for the back end, and MongoDB as the database.
 
 ## Installation Steps
 
@@ -23,7 +24,6 @@ sudo apt-get update
 
 sudo apt-get install -y mongodb-org
 ```
-
 
 ### 2. Install Node.js
 
@@ -82,13 +82,7 @@ npm start
 
 Open your web browser and navigate to `http://localhost:3000` (or whichever port the frontend is set to use) to view and interact with the chat application.
 
-
-
-Certainly! Below is a README section that outlines how to deploy your full-stack chat application using Docker and Kubernetes with Minikube. This guide assumes you have Docker, Minikube, and kubectl installed and properly configured on your system.
-
 ---
-
-
 
 ## Deployment Using Docker and Kubernetes
 
@@ -97,6 +91,7 @@ This section provides a step-by-step guide on how to deploy the chat application
 ### Prerequisites
 
 Ensure you have the following installed:
+
 - **Docker**: For creating and managing your application containers.
 - **Minikube**: A tool that allows you to run Kubernetes locally.
 - **kubectl**: A command-line tool for interacting with your Kubernetes cluster.
@@ -104,7 +99,9 @@ Ensure you have the following installed:
 ### Step 1: Dockerize the Application
 
 1. **Navigate to the Backend Directory**:
+
    - Build the Docker image for the backend.
+
    ```bash
    cd ./chat-app-backend
    docker build -t chat-app-backend .
@@ -134,6 +131,7 @@ Ensure you have the following installed:
 ### Step 4: Deploy to Kubernetes
 
 1. **Navigate to the Kubernetes Configuration Directory**:
+
    ```bash
    cd ./k8s
    ```
