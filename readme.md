@@ -4,6 +4,10 @@ This README provides instructions on how to set up and run the chat application 
 
 The application utilizes React for the front end, Express for the back end, and MongoDB as the database.
 
+![chat](recording/chat.png)
+![chat](recording/signup.png)
+
+
 ## Installation Steps
 
 ### 1. Set Up MongoDB
