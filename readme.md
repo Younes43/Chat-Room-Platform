@@ -82,7 +82,7 @@ npm start
 
 Open your web browser and navigate to `http://localhost:3000` (or whichever port the frontend is set to use) to view and interact with the chat application.
 
----
+
 
 ## Deployment Using Docker and Kubernetes
 
