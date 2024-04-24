@@ -7,7 +7,6 @@ The application utilizes React for the front end, Express for the back end, and 
 ![chat](recording/chat.png)
 ![chat](recording/signup.png)
 
-
 ## Installation Steps
 
 ### 1. Set Up MongoDB
@@ -86,8 +85,6 @@ npm start
 
 Open your web browser and navigate to `http://localhost:3000` (or whichever port the frontend is set to use) to view and interact with the chat application.
 
-
-
 ## Deployment Using Docker and Kubernetes
 
 This section provides a step-by-step guide on how to deploy the chat application using Docker containers and manage it through Kubernetes with Minikube.
@@ -111,8 +108,36 @@ Ensure you have the following installed:
    docker build -t chat-app-backend .
    ```
 
-2. **Navigate to the Frontend Directory**:
+2. **Modify MongoDB Connection URL**:
+
+   - Before deploying MongoDB, modify the MongoDB URL in your backend's environment settings to ensure it connects to the Kubernetes MongoDB service rather than a local instance:
+
+     ```plaintext
+     MONGO_URI="mongodb://admin:password@mongodb-service:27017/chatApp?authSource=admin"
+     ```
+
+3. **Deploy MongoDB with Docker and Kubernetes**:
+
+   - MongoDB can be deployed using Docker and managed within Kubernetes independently of the frontend and backend services.
+
+   1. **Build the MongoDB Docker Image** (if using a custom setup):
+
+      ```bash
+      docker build -t custom-mongo:latest -f Dockerfile.mongo .
+      ```
+
+   2. **Deploy MongoDB using Kubernetes**:
+
+      ```bash
+      kubectl apply -f mongodb-deployment.yaml
+      ```
+
+      This will create a MongoDB service and a persistent storage volume to ensure data is not lost when the pod is restarted.
+
+4. **Navigate to the Frontend Directory**:
+
    - Build the Docker image for the frontend.
+
    ```bash
    cd ./chat-app-frontend
    docker build -t chat-app-frontend .

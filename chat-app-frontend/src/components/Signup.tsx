@@ -10,6 +10,8 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
+import axios from "axios";
+
 const Signup = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -56,6 +58,9 @@ const Signup = () => {
         const loginData = await loginResponse.json();
         if (loginResponse.ok) {
           login({ username, token: loginData.token });
+          axios.defaults.headers.common[
+            "Authorization"
+          ] = `Bearer ${loginData.token}`;
           navigate("/chat"); // Navigate to chat page
         } else {
           setMessage("Signup successful! Please log in.");

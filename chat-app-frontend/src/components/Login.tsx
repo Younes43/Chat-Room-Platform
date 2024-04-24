@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import axios from "axios";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -32,6 +33,7 @@ const Login = () => {
       const data = await response.json();
       if (response.ok) {
         login({ username, token: data.token }); // Store the token in auth context
+        axios.defaults.headers.common["Authorization"] = `Bearer ${data.token}`; // Set default Axios Authorization header
         setMessage("Login successful!");
         setError(false);
         navigate("/chat");
